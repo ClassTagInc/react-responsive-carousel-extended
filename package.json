@@ -1,7 +1,7 @@
 {
-  "name": "react-responsive-carousel",
+  "name": "react-responsive-carousel-extended",
   "version": "3.1.49",
-  "description": "React Responsive Carousel",
+  "description": "React Responsive Carousel (extended)",
   "author": {
     "name": "Leandro Augusto Lemos",
     "url": "http://leandrowd.github.io/"
