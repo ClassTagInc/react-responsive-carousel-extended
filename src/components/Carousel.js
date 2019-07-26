@@ -578,7 +578,7 @@ class Carousel extends Component {
             return (
                 <CSSTransition
                     key={key}
-                    timeout={500}
+                    timeout={this.props.timeout}
                     classNames="carousel-group-item"
                 >
                     <li {...slideProps}>
