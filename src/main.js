@@ -20,7 +20,6 @@ const DemoCarousel = () => (
         showArrows
         infiniteLoop
         autoPlay
-        emulateTouch
         onClickItem={_onClickItem}
         onChange={_onChange}
         onClickThumb={_onClickThumb}

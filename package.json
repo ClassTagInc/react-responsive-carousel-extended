@@ -3,8 +3,8 @@
   "version": "3.1.49",
   "description": "React Responsive Carousel (extended)",
   "author": {
-    "name": "Leandro Augusto Lemos",
-    "url": "http://leandrowd.github.io/"
+    "name": "Yuliia Shymkova",
+    "url": "http://shymkovayu.github.io/"
   },
   "main": "./lib/index.js",
   "license": "MIT",
@@ -41,12 +41,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/leandrowd/react-responsive-carousel.git"
+    "url": "https://github.com/shymkovayu/react-responsive-carousel-extended.git"
   },
   "bugs": {
-    "url": "https://github.com/leandrowd/react-responsive-carousel/issues"
+    "url": "https://github.com/shymkovayu/react-responsive-carousel-extended/issues"
   },
-  "homepage": "http://leandrowd.github.io/react-responsive-carousel/",
+  "homepage": "http://shymkovayu.github.io/react-responsive-carousel-extended/",
   "devDependencies": {
     "@kadira/react-storybook-addon-info": "^3.4.0",
     "@kadira/storybook": "^2.35.3",
@@ -79,8 +79,9 @@
     "gulp-uglify": "^2.0.0",
     "gulp-util": "^3.0.0",
     "jest-cli": "^19.0.2",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "react-addons-css-transition-group": "^15.6.2",
     "react-test-renderer": "^15.5.4",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
@@ -102,6 +103,7 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "prop-types": "^15.5.8",
-    "react-easy-swipe": "^0.0.16"
+    "react-easy-swipe": "^0.0.16",
+    "react-transition-group": "^4.2.1"
   }
 }

@@ -1,5 +1,6 @@
 import React, { Component, Children } from 'react';
 import ReactDOM from 'react-dom';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import PropTypes from 'prop-types';
 import klass from '../cssClasses';
 import CSSTranslate from '../CSSTranslate';
@@ -561,9 +562,9 @@ class Carousel extends Component {
 
     renderItems (isClone) {
         return Children.map(this.props.children, (item, index) => {
+            const key = 'itemKey' + index + (isClone ? 'clone' : '');
             const slideProps = {
                 ref: (e) => this.setItemsRef(e, index),
-                key: 'itemKey' + index + (isClone ? 'clone' : ''),
                 className: klass.ITEM(true, index === this.state.selectedItem),
                 onClick: this.handleClickItem.bind(this, index, item)
             };
@@ -575,9 +576,15 @@ class Carousel extends Component {
             }
 
             return (
-                <li {...slideProps}>
-                    { item }
-                </li>
+                <CSSTransition
+                    key={key}
+                    timeout={500}
+                    classNames="carousel-group-item"
+                >
+                    <li {...slideProps}>
+                        { item }
+                    </li>
+                </CSSTransition>
             );
         });
     }
@@ -698,7 +705,8 @@ class Carousel extends Component {
                     <button type="button" className={klass.ARROW_PREV(!hasPrev)} onClick={this.onClickPrev} />
                     <div className={klass.WRAPPER(true, this.props.axis)} style={containerStyles} ref={this.setItemsWrapperRef}>
                         { this.props.swipeable ?
-                            <Swipe
+                            <TransitionGroup className="carousel-transition-group">
+                                <Swipe
                                 tagName="ul"
                                 ref={this.setListRef}
                                 {...swiperProps}
@@ -706,15 +714,18 @@ class Carousel extends Component {
                                 { this.props.infiniteLoop && lastClone }
                                 { this.renderItems() }
                                 { this.props.infiniteLoop && firstClone }
-                            </Swipe> :
-                            <ul
+                                </Swipe>
+                            </TransitionGroup> :
+                            <TransitionGroup className="carousel-transition-group">
+                                <ul
                                 className={klass.SLIDER(true, this.state.swiping)}
                                 ref={this.setListRef}
                                 style={itemListStyles}>
                                 { this.props.infiniteLoop && lastClone }
                                 { this.renderItems() }
                                 { this.props.infiniteLoop && firstClone }
-                            </ul>
+                                </ul>
+                            </TransitionGroup>
                         }
                     </div>
                     <button type="button" className={klass.ARROW_NEXT(!hasNext)} onClick={this.onClickNext} />
