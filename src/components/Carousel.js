@@ -705,27 +705,27 @@ class Carousel extends Component {
                     <button type="button" className={klass.ARROW_PREV(!hasPrev)} onClick={this.onClickPrev} />
                     <div className={klass.WRAPPER(true, this.props.axis)} style={containerStyles} ref={this.setItemsWrapperRef}>
                         { this.props.swipeable ?
-                            <TransitionGroup className="carousel-transition-group">
-                                <Swipe
-                                tagName="ul"
-                                ref={this.setListRef}
-                                {...swiperProps}
-                                allowMouseEvents={this.props.emulateTouch}>
+                            <Swipe
+                            tagName="ul"
+                            ref={this.setListRef}
+                            {...swiperProps}
+                            allowMouseEvents={this.props.emulateTouch}>
+                                <TransitionGroup component={null}>
                                 { this.props.infiniteLoop && lastClone }
                                 { this.renderItems() }
                                 { this.props.infiniteLoop && firstClone }
-                                </Swipe>
-                            </TransitionGroup> :
-                            <TransitionGroup className="carousel-transition-group">
-                                <ul
-                                className={klass.SLIDER(true, this.state.swiping)}
-                                ref={this.setListRef}
-                                style={itemListStyles}>
+                                </TransitionGroup>
+                            </Swipe> :
+                            <ul
+                            className={klass.SLIDER(true, this.state.swiping)}
+                            ref={this.setListRef}
+                            style={itemListStyles}>
+                                <TransitionGroup component={null}>
                                 { this.props.infiniteLoop && lastClone }
                                 { this.renderItems() }
                                 { this.props.infiniteLoop && firstClone }
-                                </ul>
-                            </TransitionGroup>
+                                </TransitionGroup>
+                            </ul>
                         }
                     </div>
                     <button type="button" className={klass.ARROW_NEXT(!hasNext)} onClick={this.onClickNext} />
