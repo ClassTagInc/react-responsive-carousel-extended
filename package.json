@@ -2,10 +2,7 @@
   "name": "react-responsive-carousel-extended",
   "version": "3.1.49",
   "description": "React Responsive Carousel (extended)",
-  "author": {
-    "name": "Yuliia Shymkova",
-    "url": "http://shymkovayu.github.io/"
-  },
+  "author": "Yuliia Shymkova (http://shymkovayu.github.io/)",
   "main": "./lib/index.js",
   "license": "MIT",
   "keywords": [
@@ -28,7 +25,6 @@
     "start": "node --harmony ./node_modules/gulp/bin/gulp",
     "test": "jest",
     "update-snapshots": "jest --updateSnapshot",
-    "prebuild": "npm test",
     "build": "babel ./src -d lib --ignore '__tests__' && gulp styles:package copy:package",
     "prepublish-to-npm": "git pull && npm run build && git add . && git commit -m 'Prepare for publishing'",
     "publish-to-npm": "(git pull origin master && npm version patch && git push origin master && npm publish && git push --tags)",
@@ -41,7 +37,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/shymkovayu/react-responsive-carousel-extended.git"
+    "url": "git+https://github.com/shymkovayu/react-responsive-carousel-extended.git"
   },
   "bugs": {
     "url": "https://github.com/shymkovayu/react-responsive-carousel-extended/issues"
@@ -83,6 +79,7 @@
     "react-dom": "^16.8.4",
     "react-addons-css-transition-group": "^15.6.2",
     "react-test-renderer": "^15.5.4",
+    "react-addons-test-utils": "^15.6.2",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "vinyl-source-stream": "^1.1.0",
@@ -105,5 +102,8 @@
     "prop-types": "^15.5.8",
     "react-easy-swipe": "^0.0.16",
     "react-transition-group": "^4.2.1"
+  },
+  "directories": {
+    "lib": "lib"
   }
 }
