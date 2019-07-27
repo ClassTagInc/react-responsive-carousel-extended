@@ -562,7 +562,6 @@ class Carousel extends Component {
 
     renderItems (isClone) {
         return Children.map(this.props.children, (item, index) => {
-            console.log('item', item);
             const key = item.key ? item.key : 'itemKey' + index + (isClone ? 'clone' : '');
             const slideProps = {
                 ref: (e) => this.setItemsRef(e, index),
