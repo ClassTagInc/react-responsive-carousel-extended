@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import Carousel from './components/Carousel';
 
@@ -15,40 +15,27 @@ function _onClickThumb() {
 }
 
 // Begin DemoSliderControls
-const DemoCarousel = () => (
-    <Carousel
+const DemoCarousel = () => {
+    const [items, setItems] = useState(["assets/1.jpeg", "assets/2.jpeg", "assets/3.jpeg", "assets/4.jpeg", "assets/5.jpeg", "assets/6.jpeg"]);
+
+    return (
+        <Carousel
         showArrows
-        infiniteLoop
-        autoPlay
         onClickItem={_onClickItem}
         onChange={_onChange}
         onClickThumb={_onClickThumb}
-    >
-        <div>
-            <img src="assets/1.jpeg" />
-            <p className="legend">Legend 1</p>
-        </div>
-        <div>
-            <img src="assets/2.jpeg" />
-            <p className="legend">Legend 2</p>
-        </div>
-        <div>
-            <img src="assets/3.jpeg" />
-            <p className="legend">Legend 3</p>
-        </div>
-        <div>
-            <img src="assets/4.jpeg" />
-            <p className="legend">Legend 4</p>
-        </div>
-        <div>
-            <img src="assets/5.jpeg" />
-            <p className="legend">Legend 5</p>
-        </div>
-        <div>
-            <img src="assets/6.jpeg" />
-            <p className="legend">Legend 6</p>
-        </div>
-    </Carousel>
-);
+        showThumbs={false}
+        showStatus={false}
+        timeout={1000}
+        >
+            {items.map(item => (
+                <div key={item}>
+                  <img src={item}/>
+                  <div className="legend" onClick={() => setItems(items.filter(i => i !=item))}>{item}</div>
+                </div>
+            ))}
+        </Carousel>
+    )
+};
 
 ReactDOM.render(<DemoCarousel />, document.querySelector('.demo-carousel'));

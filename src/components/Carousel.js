@@ -562,7 +562,8 @@ class Carousel extends Component {
 
     renderItems (isClone) {
         return Children.map(this.props.children, (item, index) => {
-            const key = 'itemKey' + index + (isClone ? 'clone' : '');
+            console.log('item', item);
+            const key = item.key ? item.key : 'itemKey' + index + (isClone ? 'clone' : '');
             const slideProps = {
                 ref: (e) => this.setItemsRef(e, index),
                 className: klass.ITEM(true, index === this.state.selectedItem),
@@ -704,7 +705,7 @@ class Carousel extends Component {
                 <div className={klass.CAROUSEL(true)} style={{width: this.props.width}}>
                     <button type="button" className={klass.ARROW_PREV(!hasPrev)} onClick={this.onClickPrev} />
                     <div className={klass.WRAPPER(true, this.props.axis)} style={containerStyles} ref={this.setItemsWrapperRef}>
-                        { this.props.swipeable ?
+                        { !this.props.swipeable ?
                             <Swipe
                             tagName="ul"
                             ref={this.setListRef}
