@@ -704,7 +704,7 @@ class Carousel extends Component {
                 <div className={klass.CAROUSEL(true)} style={{width: this.props.width}}>
                     <button type="button" className={klass.ARROW_PREV(!hasPrev)} onClick={this.onClickPrev} />
                     <div className={klass.WRAPPER(true, this.props.axis)} style={containerStyles} ref={this.setItemsWrapperRef}>
-                        { !this.props.swipeable ?
+                        { this.props.swipeable ?
                             <Swipe
                             tagName="ul"
                             ref={this.setListRef}
