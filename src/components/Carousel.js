@@ -283,15 +283,18 @@ class Carousel extends Component {
 
         const isHorizontal = this.props.axis === 'horizontal';
         const firstItem = this.itemsRef[0];
-        const itemSize = isHorizontal ? firstItem.clientWidth : firstItem.clientHeight;
 
-        this.setState((_state, props) => ({
-            itemSize: itemSize,
-            wrapperSize: isHorizontal ? itemSize * Children.count(props.children) : itemSize
-        }));
+        if (firstItem) {
+            const itemSize = isHorizontal ? firstItem.clientWidth : firstItem.clientHeight;
 
-        if (this.thumbsRef) {
-            this.thumbsRef.updateSizes();
+            this.setState((_state, props) => ({
+                itemSize: itemSize,
+                wrapperSize: isHorizontal ? itemSize * Children.count(props.children) : itemSize
+            }));
+
+            if (this.thumbsRef) {
+                this.thumbsRef.updateSizes();
+            }
         }
     }
 
