@@ -202,7 +202,7 @@ class Thumbs extends Component {
                 'transform',
                 'msTransform'
             ].forEach((prop) => {
-                this.itemsListRef.style[prop] = CSSTranslate(position, this.props.axis);
+                this.itemsListRef?.style[prop] = CSSTranslate(position, this.props.axis);
             });
         }
     }
